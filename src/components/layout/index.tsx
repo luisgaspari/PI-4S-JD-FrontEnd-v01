@@ -1,0 +1,26 @@
+import { Grid, GridItem } from "@chakra-ui/react";
+import Header from "../header/index.tsx";
+import Footer from "../footer";
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+function Layout(Props: LayoutProps) {
+  const { children } = Props;
+  return (
+    <Grid className="grid" templateColumns="1fr" templateRows="64px auto 64px">
+      <GridItem colSpan={1} rowSpan={1}>
+        <Header />
+      </GridItem>
+      <GridItem colSpan={1} rowSpan={1}>
+        {children}
+      </GridItem>
+      <GridItem colSpan={1} rowSpan={1}>
+        <Footer />
+      </GridItem>
+    </Grid>
+  );
+}
+
+export default Layout;

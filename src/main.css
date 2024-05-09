@@ -1,0 +1,5 @@
+body,
+#root,
+.grid {
+  min-height: 100vh;
+}
