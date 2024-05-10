@@ -1,5 +1,5 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import Header from "../header/index.tsx";
+import Header from "../header";
 import Footer from "../footer";
 
 interface LayoutProps {
@@ -10,7 +10,7 @@ function Layout(Props: LayoutProps) {
   const { children } = Props;
   return (
     <Grid className="grid" templateColumns="1fr" templateRows="64px auto 64px">
-      <GridItem colSpan={1} rowSpan={1}>
+      <GridItem className="header" colSpan={1} rowSpan={1}>
         <Header />
       </GridItem>
       <GridItem colSpan={1} rowSpan={1}>

@@ -14,6 +14,15 @@ import {
   useDisclosure,
   useBreakpointValue,
   Link,
+  Center,
+  Menu,
+  MenuButton,
+  HStack,
+  Avatar,
+  VStack,
+  MenuList,
+  MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -23,6 +32,7 @@ import {
 } from "@chakra-ui/icons";
 import { Logo02 as Logo } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
+import { FiChevronDown } from "react-icons/fi";
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
@@ -39,10 +49,11 @@ export default function Header() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        maxHeight={"100vh"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
+          ml={{ base: 0 }}
           display={{ base: "flex", md: "none" }}
         >
           <IconButton
@@ -64,7 +75,9 @@ export default function Header() {
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
+            <Center>
+              <DesktopNav />
+            </Center>
           </Flex>
         </Flex>
 
@@ -74,29 +87,32 @@ export default function Header() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button>
+          <Flex alignItems={"center"}>
+            <Menu>
+              <MenuButton
+                py={2}
+                transition="all 0.3s"
+                _focus={{ boxShadow: "none" }}
+              >
+                <VStack>
+                  <Avatar
+                    size={"sm"}
+                    name="Justina Clark"
+                    src={"https://images.unsplash.com/photo"}
+                  />
+                </VStack>
+              </MenuButton>
+              <MenuList
+                bg={useColorModeValue("white", "gray.900")}
+                borderColor={useColorModeValue("gray.200", "gray.700")}
+              >
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>Settings</MenuItem>
+                <MenuDivider />
+                <MenuItem>Sair</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
         </Stack>
       </Flex>
 
@@ -108,9 +124,9 @@ export default function Header() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const linkColor = useColorModeValue("gray.800", "gray.200");
+  const linkHoverColor = useColorModeValue("#377C2B", "white");
+  const popoverContentBgColor = useColorModeValue("white", "377C2B");
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -123,8 +139,9 @@ const DesktopNav = () => {
                 p={2}
                 to={navItem.href ?? "#"}
                 fontSize={"sm"}
-                fontWeight={500}
+                fontWeight={600}
                 color={linkColor}
+                borderRadius="5px"
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -166,13 +183,13 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("gray.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "#377C2B" }}
             fontWeight={500}
           >
             {label}
@@ -188,7 +205,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"#377C2B"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -213,7 +230,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={0} onClick={children && onToggle}>
       <Link
         py={2}
         as={LinkRouter}
@@ -224,37 +241,47 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+        <Text fontWeight={600} color={useColorModeValue("#377C2B", "gray.200")}>
           {label}
+          {children && (
+            <Icon
+              as={ChevronDownIcon}
+              color={"#377C2B"}
+              transition={"all .25s ease-in-out"}
+              transform={isOpen ? "rotate(180deg)" : ""}
+              w={6}
+              h={6}
+            />
+          )}
         </Text>
-        {children && (
-          <Icon
-            as={ChevronDownIcon}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
-            w={6}
-            h={6}
-          />
-        )}
       </Link>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
+          mt={1}
+          pl={10}
+          borderLeft={0}
           borderStyle={"solid"}
+          color={"#377C2B"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
           align={"start"}
         >
           {children &&
             children.map((child) => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Box>
+              <Text fontWeight={600}>
+                <Link
+                  py={1}
+                  as={LinkRouter}
+                  to={child.href ?? "#"}
+                  justifyContent="space-between"
+                  alignItems="center"
+                  _hover={{
+                    textDecoration: "none",
+                  }}
+                >
+                  {child.label}
+                </Link>
+              </Text>
             ))}
         </Stack>
       </Collapse>
