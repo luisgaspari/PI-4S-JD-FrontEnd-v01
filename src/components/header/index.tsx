@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -17,7 +16,6 @@ import {
   Center,
   Menu,
   MenuButton,
-  HStack,
   Avatar,
   VStack,
   MenuList,
@@ -32,7 +30,6 @@ import {
 } from "@chakra-ui/icons";
 import { Logo02 as Logo } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi";
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
