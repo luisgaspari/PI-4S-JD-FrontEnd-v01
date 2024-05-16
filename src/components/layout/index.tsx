@@ -9,7 +9,7 @@ interface LayoutProps {
 function Layout(Props: LayoutProps) {
   const { children } = Props;
   return (
-    <Grid className="grid" templateColumns="1fr" templateRows="64px auto 64px">
+    <Grid className="grid" templateColumns="1fr" templateRows="65px auto 115px">
       <GridItem className="header" colSpan={1} rowSpan={1}>
         <Header />
       </GridItem>
