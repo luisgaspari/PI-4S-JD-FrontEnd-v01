@@ -11,7 +11,6 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
-  useBreakpointValue,
   Link,
   Center,
   Menu,
@@ -29,7 +28,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { Logo02 as Logo } from "../logo";
+import { Logo02 } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 
@@ -64,15 +63,9 @@ export default function Header() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            <Logo w={190} />
-          </Text>
 
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+          <Logo02 w={190} />
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <Center>
               <DesktopNav />
