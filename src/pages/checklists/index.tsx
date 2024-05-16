@@ -1,17 +1,24 @@
-import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 
 function Checklists() {
   return (
     <Layout>
-      <Box p={4}>
-        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={"3xl"}>Checklists</Heading>
-          <Text color={"gray.600"} fontSize={"xl"}>
-            Projeto Interdisciplinar de Programação Web
-          </Text>
-        </Stack>
-      </Box>
+      <Flex
+        as="main"
+        w="full"
+        h="full"
+        bg="white"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        position="relative"
+        borderRadius="3xl"
+      >
+        <Text fontSize={100} color="gray.300">
+          Checklist
+        </Text>
+      </Flex>
     </Layout>
   );
 }

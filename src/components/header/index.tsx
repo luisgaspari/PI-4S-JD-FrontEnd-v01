@@ -21,6 +21,7 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  HStack,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -30,6 +31,7 @@ import {
 } from "@chakra-ui/icons";
 import { Logo02 as Logo } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
+import { FiChevronDown } from "react-icons/fi";
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
@@ -78,12 +80,7 @@ export default function Header() {
           </Flex>
         </Flex>
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
+        <HStack spacing={{ base: "0", md: "6" }}>
           <Flex alignItems={"center"}>
             <Menu>
               <MenuButton
@@ -91,26 +88,36 @@ export default function Header() {
                 transition="all 0.3s"
                 _focus={{ boxShadow: "none" }}
               >
-                <VStack>
-                  <Avatar
-                    size={"sm"}
-                    name="Justina Clark"
-                    src={"https://images.unsplash.com/photo"}
-                  />
-                </VStack>
+                <HStack>
+                  <Avatar size={"sm"} bg={"#377C2B"} />
+                  <VStack
+                    display={{ base: "none", md: "flex" }}
+                    alignItems="flex-start"
+                    spacing="1px"
+                    ml="2"
+                  >
+                    <Text fontSize="sm">User Name</Text>
+                    <Text fontSize="xs" color="gray.600">
+                      Administrador
+                    </Text>
+                  </VStack>
+                  <Box display={{ base: "none", md: "flex" }}>
+                    <FiChevronDown />
+                  </Box>
+                </HStack>
               </MenuButton>
               <MenuList
                 bg={useColorModeValue("white", "gray.900")}
                 borderColor={useColorModeValue("gray.200", "gray.700")}
               >
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Settings</MenuItem>
+                <MenuItem>Configurações</MenuItem>
+                <MenuItem>Atualizar Token</MenuItem>
                 <MenuDivider />
                 <MenuItem>Sair</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
-        </Stack>
+        </HStack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
