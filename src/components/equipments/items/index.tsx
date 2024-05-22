@@ -1,12 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import {
-  Table,
-  Thead,
-  Tbody,
   Tr,
-  Th,
   Td,
-  TableContainer,
 } from '@chakra-ui/react'
 
 interface ItemEquipmentProps {
