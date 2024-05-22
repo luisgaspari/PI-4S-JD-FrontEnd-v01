@@ -57,8 +57,8 @@ function FormEquipment({ equipments, setEquipments }: FormEquipmentProps) {
                     value={checklist}
                     onChange={(event) => setChecklist(event.target.value)}
                 />
-                <Button size={"sm"} width='500px' onClick={addEquipment} colorScheme="blue">Adicionar</Button>
             </HStack>
+            <Button size={"sm"} width='90px' onClick={addEquipment} colorScheme="green">Adicionar</Button>
         </Flex>
 
     )

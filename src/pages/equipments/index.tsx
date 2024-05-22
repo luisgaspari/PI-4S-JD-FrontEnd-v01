@@ -10,7 +10,6 @@ import {
   Tbody,
   Tr,
   Th,
-  Td,
   TableContainer,
 } from '@chakra-ui/react'
 
@@ -80,7 +79,7 @@ function Equipments() {
         <FormEquipment equipments={equipments} setEquipments={setEquipments} />
         <Divider orientation='horizontal' />
         <TableContainer w={'150vh'}>
-            <Table variant='simple'>
+            <Table variant='simple' size={'sm'}>
                 <Thead>
                     <Tr>
                         <Th>#</Th>
@@ -88,7 +87,7 @@ function Equipments() {
                         <Th>Modelo</Th>
                         <Th>Categoria</Th>
                         <Th>Checklist</Th>
-                        <Th>Ações</Th>
+                        <Th w={'205px'}>Ações</Th>
                     </Tr>
                 </Thead>
                 <Tbody>

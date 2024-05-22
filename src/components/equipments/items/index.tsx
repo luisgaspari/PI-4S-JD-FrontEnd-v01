@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 import {
   Tr,
   Td,
@@ -22,8 +22,10 @@ function ItemEquipment({ id, description, model, category, checklist, deleteEqui
             <Td>{category}</Td>
             <Td>{checklist}</Td>
             <Td>
-                <Button width={'90px'} px={5} size={'sm'} colorScheme="green">Editar</Button>
-                <Button width={'90px'} px={5} size={'sm'} onClick={() => deleteEquipment(id)} colorScheme="red">Remover</Button>
+                <Stack spacing={2} direction='row' justify='flex-end'>
+                <Button width={'90px'} size={'sm'} colorScheme="blue">Editar</Button>
+                <Button width={'90px'} size={'sm'} onClick={() => deleteEquipment(id)} colorScheme="red">Remover</Button>
+                </Stack>
             </Td>
         </Tr>
     )
