@@ -4,6 +4,15 @@ import { Equipment } from "../../interfaces/equipments";
 import { useEffect, useState } from "react";
 import FormEquipment from "../../components/equipments/form";
 import ItemEquipment from "../../components/equipments/items";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from '@chakra-ui/react'
 
 function Equipments() {
 
@@ -70,12 +79,28 @@ function Equipments() {
         <Divider orientation='horizontal' />
         <FormEquipment equipments={equipments} setEquipments={setEquipments} />
         <Divider orientation='horizontal' />
-        { 
-          equipments.map((equipment) => (
-            <ItemEquipment key={equipment.id} {...equipment} deleteEquipment={deleteEquipment} />
-          ))
-        }  
-        </Flex>
+        <TableContainer w={'150vh'}>
+            <Table variant='simple'>
+                <Thead>
+                    <Tr>
+                        <Th>#</Th>
+                        <Th>Descrição</Th>
+                        <Th>Modelo</Th>
+                        <Th>Categoria</Th>
+                        <Th>Checklist</Th>
+                        <Th>Ações</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
+                { 
+                  equipments.map((equipment) => (
+                    <ItemEquipment key={equipment.id} {...equipment} deleteEquipment={deleteEquipment} />
+                  ))
+                }  
+                </Tbody>
+            </Table>
+        </TableContainer>
+      </Flex>
     </Layout>
   );
 }

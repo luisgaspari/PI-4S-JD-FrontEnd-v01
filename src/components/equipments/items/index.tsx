@@ -1,4 +1,13 @@
-import { Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from '@chakra-ui/react'
 
 interface ItemEquipmentProps {
     id: number;
@@ -11,15 +20,17 @@ interface ItemEquipmentProps {
 
 function ItemEquipment({ id, description, model, category, checklist, deleteEquipment }: ItemEquipmentProps) {
     return (
-            <Card size={'sm'} w={'150vh'} bg={'gray.50'}>
-                <HStack>
-                    <CardBody>
-                        <Text fontSize='lg'>{id} - {description} - {model} - {category} - {checklist}</Text>
-                    </CardBody>
-                    <Button size={'sm'} colorScheme="green">Editar</Button>
-                    <Button size={'sm'} onClick={() => deleteEquipment(id)} colorScheme="red">Remover</Button>
-                </HStack>
-            </Card>
+        <Tr>
+            <Td>{id}</Td>
+            <Td>{description}</Td>
+            <Td>{model}</Td>
+            <Td>{category}</Td>
+            <Td>{checklist}</Td>
+            <Td>
+                <Button width={'90px'} px={5} size={'sm'} colorScheme="green">Editar</Button>
+                <Button width={'90px'} px={5} size={'sm'} onClick={() => deleteEquipment(id)} colorScheme="red">Remover</Button>
+            </Td>
+        </Tr>
     )
 }
 
