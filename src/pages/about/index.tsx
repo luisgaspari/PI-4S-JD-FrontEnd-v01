@@ -34,11 +34,11 @@ function About() {
                                 Grupo 2
                             </Heading>
                             <Text fontWeight={600} color={'gray.500'} mb={4}>
-                                Diego <br />
-                                Michael Douglas <br />
+                                Diego Neves da Cruz<br />
+                                Michael Douglas Ramos dos Santos<br />
                                 Lucas Felipe de Jesus <br />
                                 Luis Antonio Gaspari <br />
-                                Wendel
+                                Wendel Emanuel dos Santos
                             </Text>
                             <Text
                                 textAlign={'center'}
