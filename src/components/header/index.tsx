@@ -1,3 +1,4 @@
+
 import {
   Box,
   Flex,
@@ -21,6 +22,7 @@ import {
   MenuItem,
   MenuDivider,
   HStack,
+  Button,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -31,6 +33,8 @@ import {
 import { Logo02 } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
+import Login from "../../pages/login";
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
@@ -101,8 +105,12 @@ export default function Header() {
               </MenuButton>
               <MenuList
                 bg={useColorModeValue("white", "gray.900")}
-                borderColor={useColorModeValue("gray.200", "gray.700")}
-              >
+                borderColor={useColorModeValue("gray.200", "gray.700")}>
+                <MenuItem>
+                  <RouterLink to="/login">
+                    Login
+                  </RouterLink>
+                </MenuItem>
                 <MenuItem>Configurações</MenuItem>
                 <MenuItem>Atualizar Token</MenuItem>
                 <MenuDivider />
@@ -292,7 +300,6 @@ interface NavItem {
   children?: Array<NavItem>;
   href?: string;
 }
-
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Página Inicial",
