@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route, Router } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import NotFound from "./pages/404";
 import Equipments from "./pages/equipments";
@@ -8,8 +8,6 @@ import Inspections from "./pages/inspections";
 import Reports from "./pages/reports";
 import About from "./pages/about";
 import Login from "./pages/login";
-import { Switch } from "@chakra-ui/react";
-
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },

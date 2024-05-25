@@ -22,7 +22,6 @@ import {
   MenuItem,
   MenuDivider,
   HStack,
-  Button,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -33,7 +32,6 @@ import {
 import { Logo02 } from "../logo";
 import { Link as LinkRouter } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
-import Login from "../../pages/login";
 import { Link as RouterLink } from 'react-router-dom';
 
 export default function Header() {
