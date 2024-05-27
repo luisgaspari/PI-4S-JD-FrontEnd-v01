@@ -22,9 +22,9 @@ export default function Login() {
       bg={useColorModeValue('gray.50', 'gray.800')}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Heading fontSize={'4xl'}>Tela de login:</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+            Conecte-se <Link color={'blue.400'}>Adicionar link!</Link> ✌️
           </Text>
         </Stack>
         <Box
@@ -34,11 +34,11 @@ export default function Login() {
           p={8}>
           <Stack spacing={4}>
             <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Email </FormLabel>
               <Input type="email" />
             </FormControl>
             <FormControl id="password">
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Senha</FormLabel>
               <Input type="password" />
             </FormControl>
             <Stack spacing={10}>
@@ -46,8 +46,8 @@ export default function Login() {
                 direction={{ base: 'column', sm: 'row' }}
                 align={'start'}
                 justify={'space-between'}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+                <Checkbox>Lembre-me</Checkbox>
+                <Link color={'blue.400'}>Esqueci a senha?</Link>
               </Stack>
               <Button
                 bg={'blue.400'}
@@ -55,7 +55,7 @@ export default function Login() {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Sign in
+                Login
               </Button>
             </Stack>
           </Stack>
