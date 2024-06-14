@@ -92,9 +92,9 @@ export default function Header() {
                     ml="2"
                   >
                     <Text fontSize="sm">User Name</Text>
-                    <Text fontSize="xs" color="gray.600">
+                    {/* <Text fontSize="xs" color="gray.600">
                       Administrador
-                    </Text>
+                    </Text> */}
                   </VStack>
                   <Box display={{ base: "none", md: "flex" }}>
                     <FiChevronDown />
@@ -109,10 +109,22 @@ export default function Header() {
                     Login
                   </RouterLink>
                 </MenuItem>
-                <MenuItem>Configurações</MenuItem>
-                <MenuItem>Atualizar Token</MenuItem>
+                <MenuItem>
+                  <RouterLink to="/">
+                    Usuários
+                  </RouterLink>
+                </MenuItem>
+                <MenuItem>
+                  <RouterLink to="/">      
+                    Atualizar Token
+                  </RouterLink>
+                </MenuItem>
                 <MenuDivider />
-                <MenuItem>Sair</MenuItem>
+                <MenuItem>
+                  <RouterLink to="/">
+                    Sair
+                  </RouterLink>
+                </MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -327,10 +339,10 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Vistorias",
     href: "/inspections",
   },
-  {
-    label: "Relatórios",
-    href: "/reports",
-  },
+  // {
+  //   label: "Relatórios",
+  //   href: "/reports",
+  // },
   {
     label: "Sobre",
     href: "/about",
