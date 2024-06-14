@@ -4,12 +4,9 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 
@@ -19,43 +16,36 @@ export default function Login() {
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
-          </Text>
-        </Stack>
+      bg={useColorModeValue('gray.50', 'gray.800')}
+      backgroundImage={"url(imagejohndeere.jpg)"}
+      backgroundSize={"cover"}
+      backgroundPosition={"center center"}>
+      <Stack spacing={2} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Box
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
           p={8}>
-          <Stack spacing={4}>
+          <Box p={2}>
+            <Heading fontSize={'4xl'}>Entre com seu Login</Heading>
+          </Box>
+          <Stack spacing={4} py={6}>
             <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>E-mail</FormLabel>
               <Input type="email" />
             </FormControl>
             <FormControl id="password">
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Senha</FormLabel>
               <Input type="password" />
             </FormControl>
             <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
-              </Stack>
               <Button
                 bg={'blue.400'}
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Sign in
+                Entrar
               </Button>
             </Stack>
           </Stack>
@@ -64,5 +54,4 @@ export default function Login() {
     </Flex>
   );
 }
-  
-  
+

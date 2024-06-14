@@ -19,24 +19,5 @@ const router = createBrowserRouter([
   { path: "/about", element: <About /> },
   { path: "/login", element: <Login /> },
 ]);
-/*
-const Routes = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" Component={Home} />
-        <Route path="/equipments" Component={Equipments} />
-        <Route path="/checklists" Component={Checklists} />
-        <Route path="/checklistitems" Component={ChecklistsItems} />
-        <Route path="/inspections" Component={Inspections} />
-        <Route path="/reports" Component={Reports} />
-        <Route path="/about" Component={About} />
-        <Route path="/login" Component={Login} />
-        <Route Component={NotFound} />
-      </Switch>
-    </Router>
-  );
-};*/
-
 
 export default router

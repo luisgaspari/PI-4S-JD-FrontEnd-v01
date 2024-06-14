@@ -1,8 +1,7 @@
-import { Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Stack, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 import { Equipment } from "../../interfaces/equipments";
 import { useEffect, useState } from "react";
-import FormEquipment from "../../components/equipments/form";
 import ItemEquipment from "../../components/equipments/items";
 import {
   Table,
@@ -12,6 +11,7 @@ import {
   Th,
   TableContainer,
 } from '@chakra-ui/react'
+import ModalEquipment from "../../components/equipments/modal";
 
 function Equipments() {
 
@@ -64,41 +64,45 @@ function Equipments() {
     <Layout>
       <Flex
         as="main"
-        w="full"
-        h="full"
         bg="white"
-        alignItems="center"
+        align="center"
+        justify="space-between"
         flexDirection="column"
         position="relative"
         borderRadius="3xl"
       >
+
         <Text fontSize={40} color="#377C2B" py={2}>
           Equipamentos
         </Text>
         <Divider orientation='horizontal' />
-        <FormEquipment equipments={equipments} setEquipments={setEquipments} />
-        <Divider orientation='horizontal' />
-        <TableContainer w={'150vh'}>
+        <Box py={4}>
+          <ModalEquipment equipments={equipments} setEquipments={setEquipments} />
+        </Box>
+        <Box overflowY="auto" height="100%">
+          <TableContainer w={'150vh'}>
             <Table variant='simple' size={'sm'}>
-                <Thead>
-                    <Tr>
-                        <Th>#</Th>
-                        <Th>Descrição</Th>
-                        <Th>Modelo</Th>
-                        <Th>Categoria</Th>
-                        <Th>Checklist</Th>
-                        <Th w={'205px'}>Ações</Th>
-                    </Tr>
-                </Thead>
-                <Tbody>
-                { 
+              <Thead>
+                <Tr>
+                  <Th>#</Th>
+                  <Th>Descrição</Th>
+                  <Th>Modelo</Th>
+                  <Th>Categoria</Th>
+                  <Th>Checklist</Th>
+                  <Th w={'205px'}>Ações</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {
                   equipments.map((equipment) => (
                     <ItemEquipment key={equipment.id} {...equipment} deleteEquipment={deleteEquipment} />
                   ))
-                }  
-                </Tbody>
+                }
+              </Tbody>
             </Table>
-        </TableContainer>
+          </TableContainer>
+        </Box>
+
       </Flex>
     </Layout>
   );
