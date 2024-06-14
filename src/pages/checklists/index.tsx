@@ -1,8 +1,7 @@
-import { Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 import { Checklist } from "../../interfaces/checklists";
 import { useEffect, useState } from "react";
-import FormChecklist from "../../components/checklists/form";
 import ItemChecklist from "../../components/checklists/items";
 import {
   Table,
@@ -12,6 +11,7 @@ import {
   Th,
   TableContainer,
 } from '@chakra-ui/react'
+import ModalChecklist from "../../components/checklists/modal";
 
 function Checklists() {
 
@@ -64,26 +64,29 @@ function Checklists() {
           Checklists
         </Text>
         <Divider orientation='horizontal' />
-        <FormChecklist checklists={checklists} setChecklists={setChecklists} />
-        <Divider orientation='horizontal' />
-        <TableContainer w={'150vh'}>
+        <Box py={4}>
+          <ModalChecklist checklists={checklists} setChecklists={setChecklists} />
+        </Box>
+        <Box overflowY="auto" height="100%">
+          <TableContainer w={'150vh'}>
             <Table variant='simple' size={'sm'}>
-                <Thead>
-                    <Tr>
-                        <Th>#</Th>
-                        <Th>Descrição</Th>
-                        <Th w={'205px'}>Ações</Th>
-                    </Tr>
-                </Thead>
-                <Tbody>
-                { 
+              <Thead>
+                <Tr>
+                  <Th>#</Th>
+                  <Th>Descrição</Th>
+                  <Th w={'205px'}>Ações</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {
                   checklists.map((checklist) => (
                     <ItemChecklist key={checklist.id} {...checklist} deleteChecklist={deleteChecklist} />
                   ))
-                }  
-                </Tbody>
+                }
+              </Tbody>
             </Table>
-        </TableContainer>
+          </TableContainer>
+        </Box>
       </Flex>
     </Layout>
   );

@@ -1,8 +1,7 @@
-import { Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 import { ListChecklist } from "../../interfaces/listChecklist";
 import { useEffect, useState } from "react";
-import FormListChecklist from "../../components/listChecklist/form";
 import ItemListChecklist from "../../components/listChecklist/items";
 import {
   Table,
@@ -12,6 +11,7 @@ import {
   Th,
   TableContainer,
 } from '@chakra-ui/react'
+import ModalListChecklist from "../../components/listChecklist/modal";
 
 function ListChecklists() {
 
@@ -63,26 +63,29 @@ function ListChecklists() {
           Itens de Checklist
         </Text>
         <Divider orientation='horizontal' />
-        <FormListChecklist ListChecklists={listChecklists} setListChecklists={setListChecklists} />
-        <Divider orientation='horizontal' />
-        <TableContainer w={'150vh'}>
+        <Box py={4}>
+          <ModalListChecklist ListChecklists={listChecklists} setListChecklists={setListChecklists} />
+        </Box>
+        <Box overflowY="auto" height="100%">
+          <TableContainer w={'150vh'}>
             <Table variant='simple' size={'sm'}>
-                <Thead>
-                    <Tr>
-                        <Th>#</Th>
-                        <Th>Descrição</Th>
-                        <Th w={'205px'}>Ações</Th>
-                    </Tr>
-                </Thead>
-                <Tbody>
-                { 
-                  listChecklists.map((equipment) => (
-                    <ItemListChecklist key={equipment.id} {...equipment} deleteListChecklist={deleteListChecklist} />
+              <Thead>
+                <Tr>
+                  <Th>#</Th>
+                  <Th>Descrição</Th>
+                  <Th w={'205px'}>Ações</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {
+                  listChecklists.map((listChecklist) => (
+                    <ItemListChecklist key={listChecklist.id} {...listChecklist} deleteListChecklist={deleteListChecklist} />
                   ))
-                }  
-                </Tbody>
+                }
+              </Tbody>
             </Table>
-        </TableContainer>
+          </TableContainer>
+        </Box>
       </Flex>
     </Layout>
   );
