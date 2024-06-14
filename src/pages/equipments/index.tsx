@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 import { Equipment } from "../../interfaces/equipments";
 import { useEffect, useState } from "react";
@@ -71,7 +71,6 @@ function Equipments() {
         position="relative"
         borderRadius="3xl"
       >
-
         <Text fontSize={40} color="#377C2B" py={2}>
           Equipamentos
         </Text>
