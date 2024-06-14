@@ -21,7 +21,7 @@ function ItemEquipment({ equipment, deleteEquipment }: ItemEquipmentProps) {
             <Td>{equipment.description}</Td>
             <Td>{equipment.model}</Td>
             <Td>{equipment.category}</Td>
-            <Td>{equipment.checklist}</Td>
+            <Td>{equipment.id_checklist}</Td>
             <Td>
                 <Stack spacing={2} direction='row' justify='flex-end'>
                 <Button width={'90px'} size={'sm'} colorScheme="blue">Editar</Button>
