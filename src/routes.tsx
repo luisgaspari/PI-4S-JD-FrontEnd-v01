@@ -7,7 +7,7 @@ import ChecklistsItems from "./pages/checklistitems";
 import Inspections from "./pages/inspections";
 import Reports from "./pages/reports";
 import About from "./pages/about";
-import Login from "./pages/login";
+import Login from "./pages/login/index.tsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },

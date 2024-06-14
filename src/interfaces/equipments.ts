@@ -1,9 +1,10 @@
 export interface Equipment {
-    id: number;
+    id_equipment: number;
     description: string;
     model: string;
     category: string;
-    checklist: string;  
+    checklist: string; 
+    id_checklist: number;  
 }
 
 export interface PostEquipment {

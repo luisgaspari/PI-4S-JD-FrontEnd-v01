@@ -13,15 +13,18 @@ import {
     Input,
     Stack,
 } from "@chakra-ui/react";
-import { Equipment } from "../../../interfaces/equipments"
+import { PostEquipment } from "../../../interfaces/equipments"
 import { useEffect, useRef, useState } from "react";
+import api from "../../../helpers/axios"
 
 interface ModalEquipmentProps {
-    equipments: Equipment[]
-    setEquipments: (equipments: Equipment[]) => void
+    // equipments: Equipment[]
+    // setEquipments: (equipments: Equipment[]) => void
+    loadEquipments(): void
 }
 
-function ModalEquipment({ equipments, setEquipments }: ModalEquipmentProps) {
+// function ModalEquipment({ equipments, setEquipments }: ModalEquipmentProps) {
+function ModalEquipment({ loadEquipments }: ModalEquipmentProps) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [description, setDescription] = useState('')
@@ -29,17 +32,28 @@ function ModalEquipment({ equipments, setEquipments }: ModalEquipmentProps) {
     const [category, setCategory] = useState('')
     const [checklist, setChecklist] = useState('')
 
+    // function addEquipment() {
+    //     if (equipments.length > 0) {
+    //         const lastId = equipments[equipments.length - 1].id
+    //         const newEquipment = { id: lastId + 1, description: description, model: model, category: category, checklist: checklist }
+    //         setEquipments([...equipments, newEquipment])
+    //         onClose()
+    //     }
+    // }
+
     function addEquipment() {
-        if (equipments.length > 0) {
-            const lastId = equipments[equipments.length - 1].id
-            const newEquipment = { id: lastId + 1, description: description, model: model, category: category, checklist: checklist }
-            setEquipments([...equipments, newEquipment])
-            onClose()
+        if (description != '') {
+            const newEquipment: PostEquipment = { description: description, model: model, category: category, checklist: checklist }
+            api.post('/equipment', newEquipment, { withCredentials: true })
+                .then(() => {
+                    setDescription('')
+                    loadEquipments()
+                    onClose()
+                })
         }
     }
 
-    const inputEquipment = useRef<HTMLInputElement>(null)
-
+    const inputEquipment = useRef<HTMLInputElement | null>(null)
     useEffect(() => {
         setDescription('')
         setModel('')
