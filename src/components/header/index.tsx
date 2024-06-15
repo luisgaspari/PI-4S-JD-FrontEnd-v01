@@ -121,7 +121,7 @@ export default function Header() {
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem>
-                  <RouterLink to="/">
+                  <RouterLink to="/logout">
                     Sair
                   </RouterLink>
                 </MenuItem>

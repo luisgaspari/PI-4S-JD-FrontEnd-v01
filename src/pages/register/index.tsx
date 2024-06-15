@@ -3,19 +3,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../helpers/axios"
 import Alertar from "../../components/alert/app";
+import { User } from "../../interfaces/user";
 
 function Register() {
 
-    const [userData, setUserData] = useState({
-        name: "",
+    const [user, setUser] = useState<User>({
         email: "",
         password: "",
-    })
+        name: ""
+    });
+    
 
     const navigate = useNavigate();
 
     function handleRegister() {
-        api.post('/authentication/Register', userData, { withCredentials: true })
+        api.post('/authentication/register', user, { withCredentials: true })
             .then((resposta) => {
                 if (resposta.status === 200) {
                     // alert('Register efetuado com sucesso!')
@@ -54,15 +56,15 @@ function Register() {
                     <Stack spacing={4} py={6}>
                         <FormControl id="name">
                             <FormLabel>Nome</FormLabel>
-                            <Input type="name" onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+                            <Input type="name" onChange={(e) => setUser({ ...user, name: e.target.value })} />
                         </FormControl>
                         <FormControl id="email">
                             <FormLabel>E-mail</FormLabel>
-                            <Input type="email" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+                            <Input type="email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
                         </FormControl>
                         <FormControl id="password">
                             <FormLabel>Senha</FormLabel>
-                            <Input type="password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
+                            <Input type="password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
                         </FormControl>
                         <Stack spacing={10}>
                             <Button bg={"blue.400"} color={"white"} _hover={{bg: "blue.500"}} onClick={handleRegister}>Cadastrar</Button>
