@@ -1,6 +1,7 @@
-import { Button, Stack } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { Tr, Td } from '@chakra-ui/react'
 import { Equipment } from "../../../interfaces/equipments";
+import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 
 interface ItemEquipmentProps {
     // id_equipment: number;
@@ -21,12 +22,16 @@ function ItemEquipment({ equipment, deleteEquipment }: ItemEquipmentProps) {
             <Td>{equipment.description}</Td>
             <Td>{equipment.model}</Td>
             <Td>{equipment.category}</Td>
-            <Td>{equipment.id_checklist}</Td>
-            <Td>
-                <Stack spacing={2} direction='row' justify='flex-end'>
-                <Button width={'90px'} size={'sm'} colorScheme="blue">Editar</Button>
-                <Button width={'90px'} size={'sm'} onClick={() => deleteEquipment(equipment.id_equipment)} colorScheme="red">Remover</Button>
-                </Stack>
+            <Td>{equipment.checklist?.id_checklist}</Td>
+            <Td p={0}>
+                <Button size={'sm'} colorScheme="blue">
+                    <EditIcon fontSize={20} color={'white'} />
+                </Button>
+            </Td>
+            <Td p={0}>
+                <Button size={'sm'} onClick={() => deleteEquipment(equipment.id_equipment)} colorScheme="red">
+                    <DeleteIcon fontSize={20} color={'white'} />
+                </Button>
             </Td>
         </Tr>
     )

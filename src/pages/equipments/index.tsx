@@ -104,7 +104,8 @@ function Equipments() {
                   <Th>Modelo</Th>
                   <Th>Categoria</Th>
                   <Th>Checklist</Th>
-                  <Th w={'205px'}>Ações</Th>
+                  <Th></Th>
+                  <Th></Th>
                 </Tr>
               </Thead>
               <Tbody>
