@@ -110,7 +110,7 @@ export default function Header() {
                   </RouterLink>
                 </MenuItem>
                 <MenuItem>
-                  <RouterLink to="/">
+                  <RouterLink to="/register">
                     Usuários
                   </RouterLink>
                 </MenuItem>

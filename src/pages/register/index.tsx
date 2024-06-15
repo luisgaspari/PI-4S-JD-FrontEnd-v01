@@ -3,29 +3,27 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../helpers/axios"
 import Alertar from "../../components/alert/app";
-import { User } from "../../interfaces/user";
 
-function Login() {
+function Register() {
 
-    const [user, setUser] = useState<User>({
-        name: "", // Initialize with empty strings
+    const [userData, setUserData] = useState({
+        name: "",
         email: "",
         password: "",
-      });
-    
+    })
 
     const navigate = useNavigate();
 
-    function handleLogin() {
-        api.post('/authentication/login', user, { withCredentials: true })
+    function handleRegister() {
+        api.post('/authentication/Register', userData, { withCredentials: true })
             .then((resposta) => {
                 if (resposta.status === 200) {
-                    // alert('Login efetuado com sucesso!')
+                    // alert('Register efetuado com sucesso!')
                     //Alertar()
-                    localStorage.setItem('login', 'true')
+                    localStorage.setItem('Register', 'true')
                     navigate("/");
                 } else {
-                    alert('Erro ao Entrar!')
+                    alert('Erro ao registrar!')
                 }
             })
             .catch((erro) => {
@@ -51,19 +49,23 @@ function Login() {
                     p={8}
                 >
                     <Box p={2}>
-                        <Heading fontSize={"4xl"}>Entre com seu Login</Heading>
+                        <Heading fontSize={"4xl"}>Cadastre-se</Heading>
                     </Box>
                     <Stack spacing={4} py={6}>
+                        <FormControl id="name">
+                            <FormLabel>Nome</FormLabel>
+                            <Input type="name" onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+                        </FormControl>
                         <FormControl id="email">
                             <FormLabel>E-mail</FormLabel>
-                            <Input type="email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
+                            <Input type="email" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
                         </FormControl>
                         <FormControl id="password">
                             <FormLabel>Senha</FormLabel>
-                            <Input type="password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
+                            <Input type="password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
                         </FormControl>
                         <Stack spacing={10}>
-                            <Button bg={"blue.400"} color={"white"} _hover={{bg: "blue.500"}} onClick={handleLogin}>Entrar</Button>
+                            <Button bg={"blue.400"} color={"white"} _hover={{bg: "blue.500"}} onClick={handleRegister}>Cadastrar</Button>
                         </Stack>
                     </Stack>
                 </Box>
@@ -73,4 +75,4 @@ function Login() {
 
 }
 
-export default Login;
+export default Register;

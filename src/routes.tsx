@@ -8,6 +8,7 @@ import Inspections from "./pages/inspections";
 import Reports from "./pages/reports";
 import About from "./pages/about";
 import Login from "./pages/login/index.tsx";
+import Register from "./pages/register/index.tsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/reports", element: <Reports /> },
   { path: "/about", element: <About /> },
   { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
 ]);
 
 export default router
