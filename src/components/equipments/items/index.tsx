@@ -22,7 +22,7 @@ function ItemEquipment({ equipment, deleteEquipment }: ItemEquipmentProps) {
             <Td>{equipment.description}</Td>
             <Td>{equipment.model}</Td>
             <Td>{equipment.category}</Td>
-            <Td>{equipment.checklist?.id_checklist}</Td>
+            <Td>{equipment.checklist?.description}</Td>
             <Td p={0}>
                 <Button size={'sm'} colorScheme="blue">
                     <EditIcon fontSize={20} color={'white'} />
