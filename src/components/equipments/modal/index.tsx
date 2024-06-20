@@ -47,6 +47,9 @@ function ModalEquipment({ loadEquipments }: ModalEquipmentProps) {
             api.post('/equipment', newEquipment, { withCredentials: true })
                 .then(() => {
                     setDescription('')
+                    setModel('')
+                    setCategory('')
+                    setChecklist('')
                     loadEquipments()
                     onClose()
                 })
